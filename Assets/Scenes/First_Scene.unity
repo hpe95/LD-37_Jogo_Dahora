@@ -255,14 +255,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd6d4281e5d7cd44d8c6e38bc2c1b8d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mode: 1
+  mode: 0
   intensity: 0.55
-  chromaticAberration: 0.2
-  axialAberration: 5
-  blur: 1
+  chromaticAberration: 0
+  axialAberration: 0
+  blur: 0.5
   blurSpread: 0.3
   luminanceDependency: 0.001
-  blurDistance: 3.17
+  blurDistance: 0.001
   vignetteShader: {fileID: 4800000, guid: 627943dc7a9a74286b70a4f694a0acd5, type: 3}
   separableBlurShader: {fileID: 4800000, guid: e97c14fbb5ea04c3a902cc533d7fc5d1, type: 3}
   chromAberrationShader: {fileID: 4800000, guid: 2b4f29398d9484ccfa9fd220449f5eee,
