@@ -12,7 +12,12 @@ public class ObjectController : MonoBehaviour {
 	public Sprite buttonSprite;
 	public GameObject[] button;
 	public bool used = false;
-	// Use this for initialization
+	public AudioClip anySoundYouWantBro;
+	private float volumeAudio = .2f;
+
+	void Awake(){
+
+	}
 	void Start () {
 		
         checkList = FindObjectOfType<ChecklistManager>();
@@ -57,8 +62,8 @@ public class ObjectController : MonoBehaviour {
         checkList.checkTask(indexToBeChecked);
     }
 
-    void OnCollisionStay2D(Collision2D coll)
+    void OnCollisionEnter2D(Collision2D coll)
     {
-        
+		GetComponent<AudioSource> ().Play ();
     }
 }

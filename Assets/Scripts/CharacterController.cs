@@ -26,7 +26,7 @@ public class CharacterController : MonoBehaviour {
     // Update is called once per frame
     void Update () {
 		Move();
-        if (Input.GetKeyDown(KeyCode.Joystick1Button3) && !alreadyUsed)
+		if ((Input.GetKeyDown(KeyCode.Joystick1Button3) || Input.GetKeyDown(KeyCode.Z)) && !alreadyUsed)
         {
             UseRemedy();
         }
@@ -53,7 +53,7 @@ public class CharacterController : MonoBehaviour {
 		} else {
 			button.GetComponent<SpriteRenderer> ().enabled = false;
 		}
-        if (Input.GetKeyDown(KeyCode.Joystick1Button1))
+		if (Input.GetKeyDown(KeyCode.Joystick1Button1) || Input.GetKeyDown(KeyCode.X))
         {
 			if (object1 != null) {
 				object1.use ();
