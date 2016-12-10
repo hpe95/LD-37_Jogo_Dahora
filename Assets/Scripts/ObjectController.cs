@@ -14,9 +14,4 @@ public class ObjectController : MonoBehaviour {
 	void Update () {
 		
 	}
-
-	void OnCollisionEnter2D(Collision2D collisionObject){
-		Vector2 normal = collisionObject.contacts [0].normal;
-		direction = Vector2.
-	}
 }
