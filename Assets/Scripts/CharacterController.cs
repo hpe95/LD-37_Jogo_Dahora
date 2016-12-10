@@ -40,9 +40,7 @@ public class CharacterController : MonoBehaviour {
 			if (!oc.used) {
 				Vector3 distance = oc.transform.position - transform.position;
 				float actualDistance = distance.magnitude;
-				print ("antes " + actualDistance.ToString ());
 				if (actualDistance < mindistance) {
-					print ("depois " + actualDistance.ToString ());
 					mindistance = actualDistance;
 					object1 = oc;
 				}

@@ -5,13 +5,8 @@ using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour {
 
-    private int score = 0;
+    public int score = 0;
     public Text scoreText;
-
-    void Awake()
-    {
-        DontDestroyOnLoad(this);
-    }
 
 	// Use this for initialization
 	void Start () {
