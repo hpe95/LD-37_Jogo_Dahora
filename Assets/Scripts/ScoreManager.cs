@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.IO;
 
 public class ScoreManager : MonoBehaviour {
 
@@ -10,6 +11,16 @@ public class ScoreManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        try
+        {
+            string s = File.ReadAllText(Application.dataPath + "/score.txt");
+            score = System.Int32.Parse(s);
+        }
+        catch(System.Exception e)
+        {
+            print("foi n");
+            score = 0;
+        }
         scoreText.text = score.ToString();
 	}
 
@@ -26,6 +37,7 @@ public class ScoreManager : MonoBehaviour {
         x += amount;
         print(x);
         scoreText.text = x.ToString();
+        score = x;
     }
 
     // Só pra ficar com o nome bonito, mas na real que faz a msm coisa

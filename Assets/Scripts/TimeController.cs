@@ -10,17 +10,18 @@ public class TimeController : MonoBehaviour {
     private float hourAngle = 0;
     private float minuteAngle = 0;
 
+    public ScoreManager score;
+
     // Use this for initialization
     void Start () {
         StartCoroutine(Wait());
     }
 
-    private TextAsset textAsset;
-
     IEnumerator Wait()
     {
-        yield return new WaitForSeconds(10);
-        FileStream fs = File.OpenWrite(Application.dataPath + "score.txt");
+        yield return new WaitForSeconds(30);
+        print(FindObjectOfType<ScoreManager>().score);
+        File.WriteAllText(Application.dataPath + "/score.txt", score.score.ToString());
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

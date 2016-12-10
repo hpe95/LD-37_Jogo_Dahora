@@ -15,6 +15,7 @@ public class MenuController : MonoBehaviour {
     void Start() {
         color = texts[0].color;
         ActivateText(texts[0]);
+        System.IO.File.Delete(Application.dataPath + "/score.txt");
 	}
 	
 	// Update is called once per frame
