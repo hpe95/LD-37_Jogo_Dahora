@@ -2,37 +2,36 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using System;
 using System.Text;
 using System.IO;
 
-public class LevelManager : MonoBehaviour {
+// VEEEEEEEEEEEEEEEEEEEEEEI eu não sei pq isso ta funcionando e isso não me importa, só precisa utilizar o checkTask se quiser verificar
+// Se o index do objeto em que você acabou de realizar a task foi uma das task que estava na checklist, caso contrário nem toca
+// No resto dessa classe
 
-    public Text score;
+public class CheckListManager : MonoBehaviour {
     public Text checkList;
+
+    private List<string> savedLines = new List<string>();
+    private string[] lines = null;
+    private CharacterController player;
 
 	// Use this for initialization
 	void Start () {
         Load("Checklists/Checklist.txt");
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        IncrementScore();
+        player = FindObjectOfType<CharacterController>();
 	}
 
-    public void IncrementScore()
+    // Update is called once per frame
+    void Update()
     {
-        int x = Int32.Parse(score.text);
-        x += 1;
-        score.text = x.ToString();
-    }
-
-    public void AddToScore(int amount)
-    {
-        int x = Int32.Parse(score.text);
-        x += amount;
-        score.text = x.ToString();
+        checkList.text = "";
+        for (int i = 0; i < savedLines.Count; i++)
+        {
+            if (i != 0)
+                checkList.text = string.Concat(checkList.text, "\r\n");
+            checkList.text = string.Concat(checkList.text, savedLines[i]);
+        }
     }
 
     private bool Load(string fileName)
@@ -40,45 +39,54 @@ public class LevelManager : MonoBehaviour {
         // Handle any problems that might arise when reading the text
         try
         {
-            string line;
-            // Create a new StreamReader, tell it which file to read and what encoding the file
-            // was saved as
-            print(Application.dataPath + "/" + fileName);
-            StreamReader theReader = new StreamReader(Application.dataPath + "/" + fileName, Encoding.Default);
-            // Immediately clean up the reader after this block of code is done.
-            // You generally use the "using" statement for potentially memory-intensive objects
-            // instead of relying on garbage collection.
-            // (Do not confuse this with the using directive for namespace at the 
-            // beginning of a class!)
-            using (theReader)
-            {
-                // While there's lines left in the text file, do this:
-                do
-                {
-                    line = theReader.ReadLine();
-
-                    if (line != null)
-                    {
-                        DoStuff(line);
-                    }
-                }
-                while (line != null);
-                // Done reading, close the reader and return true to broadcast success    
-                theReader.Close();
-                return true;
-            }
+            lines = File.ReadAllLines(Application.dataPath + "/" + fileName);
+            DoStuff(lines);
         }
         // If anything broke in the try block, we throw an exception with information
         // on what didn't work
-        catch (Exception e)
+        catch (System.Exception e)
         {
-            print("deu certo n");
-            Console.WriteLine("{0}\n", e.Message);
+            print(e);
             return false;
         }
+        return true;
     }
-    void DoStuff(string entries)
+    void DoStuff(string[] entries)
     {
-        checkList.text = string.Concat(checkList.text, entries + "\r\n");
+        for (int i = 0; i < 3; i++) {
+            int x = UniqueRandomInt(0, entries.Length);
+            savedLines.Add(entries[x]);
+        }
     }
+
+    List<int> usedValues = new List<int>();
+    public int UniqueRandomInt(int min, int max)
+    {
+        int val = Random.Range(min, max);
+        while (usedValues.Contains(val))
+        {
+            val = Random.Range(min, max);
+        }
+        usedValues.Add(val);
+        return val;
+    }
+
+    // Checar se o index da task estiver na checklist
+    public void checkTask(int index)
+    {
+        try
+        {
+            if (savedLines.Contains(lines[index]))
+            {
+                savedLines.Remove(lines[index]);
+                player.score.AddToScore(500);
+            }
+        }
+        catch(System.Exception e)
+        {
+            print(e);
+            print("Véi. O erro que aconteceu ta de boas, não fudeo nada não.");
+        }
+    }
+
 }
