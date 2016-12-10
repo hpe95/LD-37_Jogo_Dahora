@@ -11,7 +11,6 @@ using System.IO;
 
 public class CheckListManager : MonoBehaviour {
     public Text checkList;
-
     private List<string> savedLines = new List<string>();
     private string[] lines = null;
     private CharacterController player;
@@ -20,6 +19,7 @@ public class CheckListManager : MonoBehaviour {
 	void Start () {
         Load("Checklists/Checklist.txt");
         player = FindObjectOfType<CharacterController>();
+
 	}
 
     // Update is called once per frame
