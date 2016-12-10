@@ -7,6 +7,7 @@ public class CharacterController : MonoBehaviour {
 	private float moveHorizontal = 0f;
 	private float moveVertical = 0f;
     private bool alreadyUsed = false;
+    private BlindnessController blindness;
 
     public ScoreManager score;
     public int radiusOfView;
@@ -16,6 +17,7 @@ public class CharacterController : MonoBehaviour {
 	void Start () {
 		rb = GetComponent<Rigidbody2D> ();
         score = FindObjectOfType<ScoreManager>();
+        blindness = FindObjectOfType<BlindnessController>();
 	}
 
 
@@ -37,7 +39,6 @@ public class CharacterController : MonoBehaviour {
                 ObjectController oc = coll.gameObject.GetComponent<ObjectController>();
                 oc.checkTask();
                 SpriteRenderer sr = oc.GetComponent<SpriteRenderer>();
-                sr.material.mainTexture.mipMapBias = 0;
             }
         }
     }
@@ -58,6 +59,7 @@ public class CharacterController : MonoBehaviour {
     private void UseRemedy()
     {
         alreadyUsed = true;
+        blindness.DoHeal();
         score.DecreaseScore(300);
     }
 }
