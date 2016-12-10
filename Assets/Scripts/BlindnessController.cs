@@ -5,18 +5,30 @@ using UnityStandardAssets.ImageEffects;
 
 public class BlindnessController : MonoBehaviour {
 
-    VignetteAndChromaticAberration vignette;
+    public VignetteAndChromaticAberration vignette;
     public float percentage = 1f;
     public float healPercentage = 0.25f;
+    public bool doingStuff = false;
 
     // Use this for initialization
     void Start () {
+        try
+        {
+            string s = System.IO.File.ReadAllText(Application.dataPath + "/score.txt");
+            string[] s1 = s.Split(',');
+            percentage = float.Parse(s1[1]);
+        }
+        catch (System.Exception e)
+        {
+            print(e);
+        }
         vignette = GetComponent<VignetteAndChromaticAberration>();
         StartCoroutine(blinding());
 	}
 	
     IEnumerator blinding()
     {
+        doingStuff = true;
         float intensity = 0f;
 
         while (intensity <= percentage)
@@ -26,9 +38,12 @@ public class BlindnessController : MonoBehaviour {
             if (intensity > 1f)
             {
                 intensity = 1f;
+                vignette.intensity = intensity;
+                break;
             }
             vignette.intensity = intensity;
         }
+        doingStuff = false;
     }
 
     public void DoHeal()
@@ -39,15 +54,17 @@ public class BlindnessController : MonoBehaviour {
     IEnumerator heal()
     {
         float desiredIntensity = vignette.intensity - healPercentage;
+        print(desiredIntensity);
         while(vignette.intensity >= desiredIntensity)
         {
-
             yield return new WaitForSeconds(1 / 60);
-            float intensity = vignette.intensity - 0.005f;
+            float intensity = vignette.intensity;
+            intensity -= 0.005f;
             if (intensity < 0)
             {
                 intensity = 0;
             }
+            print(intensity);
             vignette.intensity = intensity;
         }
     }

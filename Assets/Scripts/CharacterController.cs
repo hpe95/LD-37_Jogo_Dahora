@@ -68,8 +68,8 @@ public class CharacterController : MonoBehaviour {
 		moveHorizontal = Input.GetAxis ("Vertical");
 		moveVertical = Input.GetAxis("Horizontal");
 
-        moveHorizontal = Mathf.Abs(moveHorizontal) < EPS ? 0 : moveHorizontal*moveSpeed;
-        moveVertical = Mathf.Abs(moveVertical) < EPS ? 0 : moveVertical*moveSpeed;
+        moveHorizontal = Mathf.Abs(moveHorizontal) < EPS ? 0 : moveHorizontal*(moveSpeed-blindness.percentage*2);
+        moveVertical = Mathf.Abs(moveVertical) < EPS ? 0 : moveVertical*(moveSpeed- blindness.percentage*2);
 
         Vector2 movement = new Vector2 (moveVertical, moveHorizontal);
 		rb.velocity = movement;
@@ -77,8 +77,11 @@ public class CharacterController : MonoBehaviour {
 
     private void UseRemedy()
     {
-        alreadyUsed = true;
-        blindness.DoHeal();
-        score.DecreaseScore(300);
+        if (!blindness.doingStuff)
+        {
+            alreadyUsed = true;
+            blindness.DoHeal();
+            score.DecreaseScore(300);
+        }
     }
 }

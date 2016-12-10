@@ -14,7 +14,8 @@ public class ScoreManager : MonoBehaviour {
         try
         {
             string s = File.ReadAllText(Application.dataPath + "/score.txt");
-            score = System.Int32.Parse(s);
+            string[] s1 = s.Split(',');
+            score = System.Int32.Parse(s1[0]);
         }
         catch(System.Exception e)
         {

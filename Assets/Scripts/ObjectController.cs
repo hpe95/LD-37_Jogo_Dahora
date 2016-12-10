@@ -36,7 +36,7 @@ public class ObjectController : MonoBehaviour {
 
 	public void enableButton(){
 		if (!used) {
-			direction = transform.position + new Vector3 (0, 1f, 0);
+			direction = transform.position + new Vector3 (0, 1.33f, 0);
 			button [0].transform.position = direction;
 			SpriteRenderer sr = button [0].GetComponent<SpriteRenderer> ();
 			sr.enabled = true;
