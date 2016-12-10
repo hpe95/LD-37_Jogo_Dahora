@@ -7,6 +7,7 @@ public class CharacterController : MonoBehaviour {
 	private float moveHorizontal = 0f;
 	private float moveVertical = 0f;
     private bool alreadyUsed = false;
+	public GameObject button; 
     private BlindnessController blindness;
 
     public ScoreManager score;
@@ -29,17 +30,37 @@ public class CharacterController : MonoBehaviour {
         {
             UseRemedy();
         }
+		overlapped = Physics2D.OverlapCircleAll(new Vector2(transform.position.x, transform.position.y), radiusOfView, 1 << LayerMask.NameToLayer("UsableObjects"));
+		float mindistance = 1000f;
+		ObjectController object1 = null;
+		foreach (Collider2D coll in overlapped)
+		{
+			
+			ObjectController oc = coll.gameObject.GetComponent<ObjectController>();
+			if (!oc.used) {
+				Vector3 distance = oc.transform.position - transform.position;
+				float actualDistance = distance.magnitude;
+				print ("antes " + actualDistance.ToString ());
+				if (actualDistance < mindistance) {
+					print ("depois " + actualDistance.ToString ());
+					mindistance = actualDistance;
+					object1 = oc;
+				}
+			}
 
+		}
+
+		if (object1 != null) {
+			object1.enableButton ();
+		} else {
+			button.GetComponent<SpriteRenderer> ().enabled = false;
+		}
         if (Input.GetKeyDown(KeyCode.Joystick1Button1))
         {
-            overlapped = Physics2D.OverlapCircleAll(new Vector2(transform.position.x, transform.position.y), radiusOfView, 1 << LayerMask.NameToLayer("UsableObjects"));
-            foreach (Collider2D coll in overlapped)
-            {
-                print("oi");
-                ObjectController oc = coll.gameObject.GetComponent<ObjectController>();
-                oc.checkTask();
-                SpriteRenderer sr = oc.GetComponent<SpriteRenderer>();
-            }
+			if (object1 != null) {
+				object1.use ();
+				object1.checkTask ();
+			}
         }
     }
 

@@ -11,6 +11,7 @@ public class ObjectController : MonoBehaviour {
     public ChecklistManager checkList;
 	public Sprite buttonSprite;
 	public GameObject[] button;
+	public bool used = false;
 	// Use this for initialization
 	void Start () {
 		
@@ -27,21 +28,29 @@ public class ObjectController : MonoBehaviour {
     void Update () {
         
         overlapped = Physics2D.OverlapCircle(new Vector2(transform.position.x + 2f, transform.position.y), radiusOfView, 1 << LayerMask.NameToLayer("Player"));
-        if(overlapped != null)
-        {
-			Debug.DrawLine (transform.position, overlapped.gameObject.transform.position);
-			if (button[0] != null) {
-				direction = transform.position + new Vector3(0,1f,0);
-				button [0].transform.position = direction;
-				button[0].GetComponent<SpriteRenderer> ().sprite = buttonSprite;
-			}
+       
 
-        }
-        else
-        {
-			//print("Não mostrar mais o botão aqui.");
-        }
+     
+        
     }
+
+	public void enableButton(){
+		if (!used) {
+			direction = transform.position + new Vector3 (0, 1f, 0);
+			button [0].transform.position = direction;
+			SpriteRenderer sr = button [0].GetComponent<SpriteRenderer> ();
+			sr.enabled = true;
+			sr.sprite = buttonSprite;
+		}
+	}
+
+	public void use(){
+		used = true;
+	}
+	public void disableButton(){
+		button [0].GetComponent<SpriteRenderer> ().enabled = false;
+	}
+
 
     public void checkTask()
     {
