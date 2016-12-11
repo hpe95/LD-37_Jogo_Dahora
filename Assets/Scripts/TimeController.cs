@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.IO;
+using Image = UnityEngine.UI.Image;
 
 public class TimeController : MonoBehaviour {
 
@@ -10,12 +11,17 @@ public class TimeController : MonoBehaviour {
     private float hourAngle = 0;
     private float minuteAngle = 0;
 
+    public Image overlay;
+    public GameObject hour;
+    public GameObject minute;
     public ScoreManager score;
     public UnityEngine.UI.Text days;
     private BlindnessController blindness;
+    private bool booleana = true;
 
     // Use this for initialization
-    void Start () {
+    void Start() {
+        overlay.color = new Color(0, 0, 0, 0);
         StartCoroutine(Wait());
         blindness = FindObjectOfType<BlindnessController>();
         string s = "";
@@ -30,17 +36,23 @@ public class TimeController : MonoBehaviour {
             s = string.Concat(s, "1");
         }
         days.text = string.Concat("Day ", s);
+        days.enabled = false;
     }
 
     IEnumerator Wait()
     {
-        
-        yield return new WaitForSeconds(10);
+        Vector2 actual = Vector2.up;
+        for (int i = 0; i < 1500; i++)
+        {
+            //actual = new Vector2(Mathf.Cos(0.5f) * actual.x - Mathf.Sin(0.5f) * actual.y, Mathf.Sin(0.5f) * actual.x + Mathf.Cos(0.5f) * actual.y);
+            hour.transform.Rotate(Vector3.forward, -0.24f, Space.World);
+            yield return new WaitForSeconds(0.01f);
+        }
         string s = "";
-       
-        
+
+
         float intensity = blindness.vignette.intensity + 0.33f;
-        if(intensity > 1f)
+        if (intensity > 1f)
         {
             intensity = 1f;
         }
@@ -49,7 +61,7 @@ public class TimeController : MonoBehaviour {
         {
             string s2 = File.ReadAllText(Application.dataPath + "/score.txt");
             string[] s1 = s2.Split(',');
-            s = string.Concat(s, ","+(System.Int32.Parse(s1[2])+1).ToString());
+            s = string.Concat(s, "," + (System.Int32.Parse(s1[2]) + 1).ToString());
         }
         catch (System.Exception e)
         {
@@ -57,6 +69,17 @@ public class TimeController : MonoBehaviour {
         }
         print(s);
         File.WriteAllText(Application.dataPath + "/score.txt", s);
+
+        while (overlay.color.a < 1f)
+        {
+            overlay.color = new Color(overlay.color.r, overlay.color.g, overlay.color.b, overlay.color.a + 0.01f);
+            yield return new WaitForSeconds(1f / 60f);       
+        }
+
+        days.enabled = true;
+        yield return new WaitForSeconds(2f);
+
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
