@@ -13,7 +13,7 @@ public class ChecklistManager : MonoBehaviour
 {
     public Text checkList;
 
-    private List<string> savedLines = new List<string>();
+    public List<string> savedLines = new List<string>();
     private string[] lines = null;
     private CharacterController player;
 
@@ -27,6 +27,11 @@ public class ChecklistManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(savedLines.Count == 0)
+        {
+            TimeController time = FindObjectOfType<TimeController>();
+            time.Endlevel();
+        }
         checkList.text = "";
         for (int i = 0; i < savedLines.Count; i++)
         {
@@ -74,7 +79,7 @@ public class ChecklistManager : MonoBehaviour
     }
 
     // Checar se o index da task estiver na checklist
-    public void checkTask(int index)
+    public bool checkTask(int index)
     {
         try
         {
@@ -82,11 +87,13 @@ public class ChecklistManager : MonoBehaviour
             {
                 savedLines.Remove(lines[index]);
                 player.score.AddToScore(500);
+                return true;
             }
         }
         catch (System.Exception e)
         {
         }
+        return false;
     }
 
 }

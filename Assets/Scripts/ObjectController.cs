@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ObjectController : MonoBehaviour {
 
-    public int indexToBeChecked;
+    public int[] indexToBeChecked;
 	private Vector3 direction;
     int radiusOfView;
 	private SpriteRenderer sr;
@@ -59,7 +59,13 @@ public class ObjectController : MonoBehaviour {
 
     public void checkTask()
     {
-        checkList.checkTask(indexToBeChecked);
+        foreach (int index in indexToBeChecked)
+        {
+            if (checkList.checkTask(index))
+            {
+                break;
+            }
+        }
     }
 
     void OnCollisionEnter2D(Collision2D coll)

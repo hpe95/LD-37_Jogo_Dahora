@@ -72,7 +72,7 @@ public class CharacterController : MonoBehaviour {
         } else {
             button.GetComponent<SpriteRenderer>().enabled = false;
         }
-        if (Input.GetKeyDown(KeyCode.Joystick1Button1) || Input.GetKeyDown(KeyCode.X))
+        if ((Input.GetKeyDown(KeyCode.Joystick1Button1) || Input.GetKeyDown(KeyCode.X)) && seilavei )
         {
             if (object1 != null) {
                 seilavei = false;

@@ -19,19 +19,19 @@ Platform assembly: C:\Users\Felipe\Desktop\Jogo\iuhasfj_Data\Managed\UnityEngine
 Loading C:\Users\Felipe\Desktop\Jogo\iuhasfj_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: C:\Users\Felipe\Desktop\Jogo\iuhasfj_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll (this message is harmless)
 Loading C:\Users\Felipe\Desktop\Jogo\iuhasfj_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll into Unity Child Domain
-- Completed reload, in  0.025 seconds
+- Completed reload, in  0.026 seconds
 Platform assembly: C:\Users\Felipe\Desktop\Jogo\iuhasfj_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\Felipe\Desktop\Jogo\iuhasfj_Data\Managed\System.dll (this message is harmless)
 desktop: 1600x900 60Hz; virtual: 1600x900 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 2.030839 ms
+UnloadTime: 1.911103 ms
 Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 9.223370 ms
+UnloadTime: 4.273471 ms
 
-Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 627.
-Total: 0.376933 ms (FindLiveObjects: 0.042607 ms CreateObjectMapping: 0.032344 ms MarkObjects: 0.273992 ms  DeleteObjects: 0.027057 ms)
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 665.
+Total: 0.270260 ms (FindLiveObjects: 0.046339 ms CreateObjectMapping: 0.032966 ms MarkObjects: 0.179136 ms  DeleteObjects: 0.011196 ms)
 
 foi n
  
@@ -41,51 +41,10 @@ Na moral que não foi
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-500
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
 NullReferenceException: Object reference not set to an instance of an object
   at ObjectController.OnCollisionEnter2D (UnityEngine.Collision2D coll) [0x00000] in <filename unknown>:0 
  
 (Filename:  Line: -1)
-
-1000
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-NullReferenceException: Object reference not set to an instance of an object
-  at ObjectController.OnCollisionEnter2D (UnityEngine.Collision2D coll) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-1000,0.335,2,3
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-NullReferenceException: Object reference not set to an instance of an object
-  at ObjectController.OnCollisionEnter2D (UnityEngine.Collision2D coll) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-1500
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 1.487519 ms
-
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 630.
-Total: 0.362627 ms (FindLiveObjects: 0.043851 ms CreateObjectMapping: 0.032344 ms MarkObjects: 0.279590 ms  DeleteObjects: 0.005909 ms)
-
-NullReferenceException: Object reference not set to an instance of an object
-  at ObjectController.OnCollisionEnter2D (UnityEngine.Collision2D coll) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-1500
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
 NullReferenceException: Object reference not set to an instance of an object
   at ObjectController.OnCollisionEnter2D (UnityEngine.Collision2D coll) [0x00000] in <filename unknown>:0 
@@ -107,33 +66,9 @@ NullReferenceException: Object reference not set to an instance of an object
  
 (Filename:  Line: -1)
 
-1500,0.6699998,3,3
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-NullReferenceException: Object reference not set to an instance of an object
-  at ObjectController.OnCollisionEnter2D (UnityEngine.Collision2D coll) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-2000
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-NullReferenceException: Object reference not set to an instance of an object
-  at ObjectController.OnCollisionEnter2D (UnityEngine.Collision2D coll) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 1.025993 ms
-
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 633.
-Total: 0.250667 ms (FindLiveObjects: 0.042918 ms CreateObjectMapping: 0.032966 ms MarkObjects: 0.171672 ms  DeleteObjects: 0.002799 ms)
-
-1200
+0,0.335,2,3
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
 Setting up 1 worker threads for Enlighten.
-  Thread -> id: 205c -> priority: 1 
+  Thread -> id: 1990 -> priority: 1 

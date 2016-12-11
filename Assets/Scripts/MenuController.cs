@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class MenuController : MonoBehaviour {
 
     public Text[] texts = new Text[2];
+    public SpriteRenderer background;
 
     private Color color;
     private int index;
@@ -16,6 +17,7 @@ public class MenuController : MonoBehaviour {
         color = texts[0].color;
         ActivateText(texts[0]);
         System.IO.File.Delete(Application.dataPath + "/score.txt");
+        scale();
 	}
 	
 	// Update is called once per frame
@@ -43,6 +45,22 @@ public class MenuController : MonoBehaviour {
             }
         }
         
+    }
+
+    void scale()
+    {
+        transform.localScale = new Vector3(1, 1, 1);
+
+        float width = background.sprite.bounds.size.x;
+        float height = background.sprite.bounds.size.y;
+
+        float worldScreenHeight = Camera.main.orthographicSize * 2.0f;
+        float worldScreenWidth = worldScreenHeight / Screen.height * Screen.width;
+
+        float x = worldScreenWidth / width;
+        float y = worldScreenHeight / height;
+
+        background.gameObject.transform.localScale = new Vector3(x, y, 1);
     }
 
     IEnumerator wait()

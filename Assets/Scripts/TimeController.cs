@@ -19,6 +19,7 @@ public class TimeController : MonoBehaviour {
     public ScoreManager score;
     public UnityEngine.UI.Text days;
     private BlindnessController blindness;
+    private bool endLevelStarted = false;
 
     // Use this for initialization
     void Start() {
@@ -53,10 +54,29 @@ public class TimeController : MonoBehaviour {
         Vector2 actual = Vector2.up;
         for (int i = 0; i < 1500; i++)
         {
+            if(i == 750)
+            {
+                SmoothScaling scaling = FindObjectOfType<SmoothScaling>();
+                scaling.StartThis();
+            }
             //actual = new Vector2(Mathf.Cos(0.5f) * actual.x - Mathf.Sin(0.5f) * actual.y, Mathf.Sin(0.5f) * actual.x + Mathf.Cos(0.5f) * actual.y);
             hour.transform.Rotate(Vector3.forward, -0.24f, Space.World);
             yield return new WaitForSeconds(0.01f);
         }
+        Endlevel();
+    }
+
+    public void Endlevel()
+    {
+        if (!endLevelStarted)
+        {
+            endLevelStarted = true;
+            StartCoroutine(EndLevelNaMoral());
+        }
+    }
+
+    IEnumerator EndLevelNaMoral()
+    {
         string s = "";
 
 
@@ -74,7 +94,7 @@ public class TimeController : MonoBehaviour {
         }
         catch (System.Exception e)
         {
-            s = string.Concat(s, ",2");
+            s = string.Concat(s, ",1");
         }
         s = string.Concat(s, "," + player.actualDrugs.ToString());
         print(s);
@@ -83,13 +103,19 @@ public class TimeController : MonoBehaviour {
         while (overlay.color.a < 1f)
         {
             overlay.color = new Color(overlay.color.r, overlay.color.g, overlay.color.b, overlay.color.a + 0.01f);
-            yield return new WaitForSeconds(1f / 60f);       
+            yield return new WaitForSeconds(1f / 60f);
         }
 
         days.enabled = true;
         yield return new WaitForSeconds(2f);
-
-
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        ChecklistManager checklist = FindObjectOfType<ChecklistManager>();
+        if (checklist.savedLines.Count == 3)
+        {
+            Application.Quit();
+        }
+        else
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
     }
 }
