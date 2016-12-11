@@ -12,6 +12,8 @@ public class CharacterController : MonoBehaviour {
     private BlindnessController blindness;
     private bool seilavei = true;
 
+    private Animator anim;
+
     public int maxDrugs;
     public int actualDrugs;
     public ScoreManager score;
@@ -20,6 +22,7 @@ public class CharacterController : MonoBehaviour {
     private Rigidbody2D rb;
 	// Use this for initialization
 	void Start () {
+        anim = GetComponent<Animator>();
         try
         {
             string s = File.ReadAllText(Application.dataPath + "/score.txt");
@@ -93,8 +96,12 @@ public class CharacterController : MonoBehaviour {
     private const float EPS = 1e-9f;
 
 	public void Move(){
+
 		moveHorizontal = Input.GetAxis ("Vertical");
 		moveVertical = Input.GetAxis("Horizontal");
+
+        anim.SetFloat("speedX", moveVertical);
+        anim.SetFloat("speedY", moveHorizontal);
 
         moveHorizontal = Mathf.Abs(moveHorizontal) < EPS ? 0 : moveHorizontal*(moveSpeed-blindness.percentage*2);
         moveVertical = Mathf.Abs(moveVertical) < EPS ? 0 : moveVertical*(moveSpeed- blindness.percentage*2);
@@ -102,6 +109,41 @@ public class CharacterController : MonoBehaviour {
         Vector2 movement = new Vector2 (moveVertical, moveHorizontal);
 		rb.velocity = movement;
 	}
+
+    void FixedUpdate()
+    {
+        float test = Input.GetAxis("Vertical");
+        float test2 = Input.GetAxis("Horizontal");
+
+
+        test = Mathf.Abs(test) < EPS ? 0 : test;
+        test2 = Mathf.Abs(test2) < EPS ? 0 : test2;
+
+
+        if (test != 0 || test2 != 0)
+        {
+            anim.SetBool("walking", true);
+            if (test > 0)
+                anim.SetFloat("lastMoveY", 1f);
+            else if (test < 0)
+                anim.SetFloat("lastMoveY", -1f);
+            else
+                anim.SetFloat("lastMoveY", 0);
+
+            if (test2 > 0)
+                anim.SetFloat("lastMoveX", 1f);
+            else if (test2 < 0)
+                anim.SetFloat("lastMoveX", -1f);
+            else
+                anim.SetFloat("lastMoveX", 0);
+        }
+        else
+        {
+            anim.SetBool("walking", false);
+           
+
+        }
+    }
 
     private void UseRemedy()
     {
