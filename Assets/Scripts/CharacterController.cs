@@ -10,6 +10,7 @@ public class CharacterController : MonoBehaviour {
     private bool alreadyUsed = false;
 	public GameObject button; 
     private BlindnessController blindness;
+    private bool seilavei = true;
 
     public int maxDrugs;
     public int actualDrugs;
@@ -40,41 +41,53 @@ public class CharacterController : MonoBehaviour {
     private Collider2D[] overlapped = null;
     // Update is called once per frame
     void Update () {
-		Move();
-		if ((Input.GetKeyDown(KeyCode.Joystick1Button3) || Input.GetKeyDown(KeyCode.Z)) && !alreadyUsed)
+        if (seilavei)
         {
-            UseRemedy();
+            Move();
+            if ((Input.GetKeyDown(KeyCode.Joystick1Button3) || Input.GetKeyDown(KeyCode.Z)) && !alreadyUsed)
+            {
+                UseRemedy();
+            }
         }
-		overlapped = Physics2D.OverlapCircleAll(new Vector2(transform.position.x, transform.position.y), radiusOfView, 1 << LayerMask.NameToLayer("UsableObjects"));
-		float mindistance = 1000f;
-		ObjectController object1 = null;
-		foreach (Collider2D coll in overlapped)
-		{
-			
-			ObjectController oc = coll.gameObject.GetComponent<ObjectController>();
-			if (!oc.used) {
-				Vector3 distance = oc.transform.position - transform.position;
-				float actualDistance = distance.magnitude;
-				if (actualDistance < mindistance) {
-					mindistance = actualDistance;
-					object1 = oc;
-				}
-			}
-
-		}
-
-		if (object1 != null) {
-			object1.enableButton ();
-		} else {
-			button.GetComponent<SpriteRenderer> ().enabled = false;
-		}
-		if (Input.GetKeyDown(KeyCode.Joystick1Button1) || Input.GetKeyDown(KeyCode.X))
+        overlapped = Physics2D.OverlapCircleAll(new Vector2(transform.position.x, transform.position.y), radiusOfView, 1 << LayerMask.NameToLayer("UsableObjects"));
+        float mindistance = 1000f;
+        ObjectController object1 = null;
+        foreach (Collider2D coll in overlapped)
         {
-			if (object1 != null) {
-				object1.use ();
-				object1.checkTask ();
-			}
+
+            ObjectController oc = coll.gameObject.GetComponent<ObjectController>();
+            if (!oc.used) {
+                Vector3 distance = oc.transform.position - transform.position;
+                float actualDistance = distance.magnitude;
+                if (actualDistance < mindistance) {
+                    mindistance = actualDistance;
+                    object1 = oc;
+                }
+            }
+
         }
+
+        if (object1 != null) {
+            object1.enableButton();
+        } else {
+            button.GetComponent<SpriteRenderer>().enabled = false;
+        }
+        if (Input.GetKeyDown(KeyCode.Joystick1Button1) || Input.GetKeyDown(KeyCode.X))
+        {
+            if (object1 != null) {
+                seilavei = false;
+                rb.velocity = Vector2.zero;
+                StartCoroutine(seilamano());
+                object1.use();
+                object1.checkTask();
+            }
+        }
+    }
+
+    IEnumerator seilamano()
+    {
+        yield return new WaitForSeconds(3f);
+        seilavei = true;
     }
 
     private const float EPS = 1e-9f;

@@ -51,7 +51,7 @@ public class TimeController : MonoBehaviour {
     {
 
         Vector2 actual = Vector2.up;
-        for (int i = 0; i < 500; i++)
+        for (int i = 0; i < 1500; i++)
         {
             //actual = new Vector2(Mathf.Cos(0.5f) * actual.x - Mathf.Sin(0.5f) * actual.y, Mathf.Sin(0.5f) * actual.x + Mathf.Cos(0.5f) * actual.y);
             hour.transform.Rotate(Vector3.forward, -0.24f, Space.World);

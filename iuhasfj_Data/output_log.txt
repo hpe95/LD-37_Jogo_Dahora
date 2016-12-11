@@ -19,112 +19,121 @@ Platform assembly: C:\Users\Felipe\Desktop\Jogo\iuhasfj_Data\Managed\UnityEngine
 Loading C:\Users\Felipe\Desktop\Jogo\iuhasfj_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: C:\Users\Felipe\Desktop\Jogo\iuhasfj_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll (this message is harmless)
 Loading C:\Users\Felipe\Desktop\Jogo\iuhasfj_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll into Unity Child Domain
-- Completed reload, in  0.026 seconds
+- Completed reload, in  0.025 seconds
 Platform assembly: C:\Users\Felipe\Desktop\Jogo\iuhasfj_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\Felipe\Desktop\Jogo\iuhasfj_Data\Managed\System.dll (this message is harmless)
 desktop: 1600x900 60Hz; virtual: 1600x900 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 2.029296 ms
+UnloadTime: 2.030839 ms
 Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 4.501461 ms
+UnloadTime: 9.223370 ms
 
-Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 570.
-Total: 0.202463 ms (FindLiveObjects: 0.037320 ms CreateObjectMapping: 0.029545 ms MarkObjects: 0.121291 ms  DeleteObjects: 0.013995 ms)
-
-System.IO.IsolatedStorage.IsolatedStorageException: Could not find file "C:\Users\Felipe\Desktop\Jogo\iuhasfj_Data\score.txt".
-  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, Boolean anonymous, FileOptions options) [0x00000] in <filename unknown>:0 
-  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share) [0x00000] in <filename unknown>:0 
-  at System.IO.File.OpenRead (System.String path) [0x00000] in <filename unknown>:0 
-  at System.IO.StreamReader..ctor (System.String path, System.Text.Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize) [0x00000] in <filename unknown>:0 
-  at System.IO.StreamReader..ctor (System.String path, System.Text.Encoding encoding) [0x00000] in <filename unknown>:0 
-  at System.IO.File.ReadAllText (System.String path, System.Text.Encoding encoding) [0x00000] in <filename unknown>:0 
-  at System.IO.File.ReadAllText (System.String path) [0x00000] in <filename unknown>:0 
-  at BlindnessController.Start () [0x00000] in <filename unknown>:0 
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-System.IO.IsolatedStorage.IsolatedStorageException: Could not find a part of the path "C:\Users\Felipe\Desktop\Jogo\iuhasfj_Data\Checklists\Checklist.txt".
-  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, Boolean anonymous, FileOptions options) [0x00000] in <filename unknown>:0 
-  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share) [0x00000] in <filename unknown>:0 
-  at System.IO.File.OpenRead (System.String path) [0x00000] in <filename unknown>:0 
-  at System.IO.StreamReader..ctor (System.String path, System.Text.Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize) [0x00000] in <filename unknown>:0 
-  at System.IO.StreamReader..ctor (System.String path) [0x00000] in <filename unknown>:0 
-  at System.IO.File.OpenText (System.String path) [0x00000] in <filename unknown>:0 
-  at System.IO.File.ReadAllLines (System.String path) [0x00000] in <filename unknown>:0 
-  at ChecklistManager.Load (System.String fileName) [0x00000] in <filename unknown>:0 
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 627.
+Total: 0.376933 ms (FindLiveObjects: 0.042607 ms CreateObjectMapping: 0.032344 ms MarkObjects: 0.273992 ms  DeleteObjects: 0.027057 ms)
 
 foi n
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
+Na moral que não foi
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+500
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
 NullReferenceException: Object reference not set to an instance of an object
-  at RyanNielson.PixelCamera2D.PixelCamera2D.BestFitBehaviour () [0x00000] in <filename unknown>:0 
-  at RyanNielson.PixelCamera2D.PixelCamera2D.UpdateCamera () [0x00000] in <filename unknown>:0 
-  at RyanNielson.PixelCamera2D.PixelCamera2D.Update () [0x00000] in <filename unknown>:0 
+  at ObjectController.OnCollisionEnter2D (UnityEngine.Collision2D coll) [0x00000] in <filename unknown>:0 
  
 (Filename:  Line: -1)
 
-0,0.335,2
+1000
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at ObjectController.OnCollisionEnter2D (UnityEngine.Collision2D coll) [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+1000,0.335,2,3
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at ObjectController.OnCollisionEnter2D (UnityEngine.Collision2D coll) [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+1500
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
 Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 0.501026 ms
+UnloadTime: 1.487519 ms
 
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 573.
-Total: 0.236362 ms (FindLiveObjects: 0.031722 ms CreateObjectMapping: 0.016483 ms MarkObjects: 0.183491 ms  DeleteObjects: 0.004043 ms)
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 630.
+Total: 0.362627 ms (FindLiveObjects: 0.043851 ms CreateObjectMapping: 0.032344 ms MarkObjects: 0.279590 ms  DeleteObjects: 0.005909 ms)
 
-System.IO.IsolatedStorage.IsolatedStorageException: Could not find a part of the path "C:\Users\Felipe\Desktop\Jogo\iuhasfj_Data\Checklists\Checklist.txt".
-  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, Boolean anonymous, FileOptions options) [0x00000] in <filename unknown>:0 
-  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share) [0x00000] in <filename unknown>:0 
-  at System.IO.File.OpenRead (System.String path) [0x00000] in <filename unknown>:0 
-  at System.IO.StreamReader..ctor (System.String path, System.Text.Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize) [0x00000] in <filename unknown>:0 
-  at System.IO.StreamReader..ctor (System.String path) [0x00000] in <filename unknown>:0 
-  at System.IO.File.OpenText (System.String path) [0x00000] in <filename unknown>:0 
-  at System.IO.File.ReadAllLines (System.String path) [0x00000] in <filename unknown>:0 
-  at ChecklistManager.Load (System.String fileName) [0x00000] in <filename unknown>:0 
+NullReferenceException: Object reference not set to an instance of an object
+  at ObjectController.OnCollisionEnter2D (UnityEngine.Collision2D coll) [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+1500
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
 NullReferenceException: Object reference not set to an instance of an object
-  at RyanNielson.PixelCamera2D.PixelCamera2D.BestFitBehaviour () [0x00000] in <filename unknown>:0 
-  at RyanNielson.PixelCamera2D.PixelCamera2D.UpdateCamera () [0x00000] in <filename unknown>:0 
-  at RyanNielson.PixelCamera2D.PixelCamera2D.Update () [0x00000] in <filename unknown>:0 
+  at ObjectController.OnCollisionEnter2D (UnityEngine.Collision2D coll) [0x00000] in <filename unknown>:0 
  
 (Filename:  Line: -1)
 
-0,0.6699998,3
+NullReferenceException: Object reference not set to an instance of an object
+  at ObjectController.OnCollisionEnter2D (UnityEngine.Collision2D coll) [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at ObjectController.OnCollisionEnter2D (UnityEngine.Collision2D coll) [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at ObjectController.OnCollisionEnter2D (UnityEngine.Collision2D coll) [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+1500,0.6699998,3,3
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at ObjectController.OnCollisionEnter2D (UnityEngine.Collision2D coll) [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+2000
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at ObjectController.OnCollisionEnter2D (UnityEngine.Collision2D coll) [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
 
 Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 1.033463 ms
+UnloadTime: 1.025993 ms
 
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 576.
-Total: 0.338993 ms (FindLiveObjects: 0.041363 ms CreateObjectMapping: 0.030167 ms MarkObjects: 0.260309 ms  DeleteObjects: 0.006842 ms)
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 633.
+Total: 0.250667 ms (FindLiveObjects: 0.042918 ms CreateObjectMapping: 0.032966 ms MarkObjects: 0.171672 ms  DeleteObjects: 0.002799 ms)
 
-System.IO.IsolatedStorage.IsolatedStorageException: Could not find a part of the path "C:\Users\Felipe\Desktop\Jogo\iuhasfj_Data\Checklists\Checklist.txt".
-  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, Boolean anonymous, FileOptions options) [0x00000] in <filename unknown>:0 
-  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share) [0x00000] in <filename unknown>:0 
-  at System.IO.File.OpenRead (System.String path) [0x00000] in <filename unknown>:0 
-  at System.IO.StreamReader..ctor (System.String path, System.Text.Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize) [0x00000] in <filename unknown>:0 
-  at System.IO.StreamReader..ctor (System.String path) [0x00000] in <filename unknown>:0 
-  at System.IO.File.OpenText (System.String path) [0x00000] in <filename unknown>:0 
-  at System.IO.File.ReadAllLines (System.String path) [0x00000] in <filename unknown>:0 
-  at ChecklistManager.Load (System.String fileName) [0x00000] in <filename unknown>:0 
+1200
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-NullReferenceException: Object reference not set to an instance of an object
-  at RyanNielson.PixelCamera2D.PixelCamera2D.BestFitBehaviour () [0x00000] in <filename unknown>:0 
-  at RyanNielson.PixelCamera2D.PixelCamera2D.UpdateCamera () [0x00000] in <filename unknown>:0 
-  at RyanNielson.PixelCamera2D.PixelCamera2D.Update () [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
 
 Setting up 1 worker threads for Enlighten.
-  Thread -> id: 18d0 -> priority: 1 
+  Thread -> id: 205c -> priority: 1 
