@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 
 public class CharacterController : MonoBehaviour {
 	public float moveSpeed = 0f;
@@ -10,12 +11,26 @@ public class CharacterController : MonoBehaviour {
 	public GameObject button; 
     private BlindnessController blindness;
 
+    public int maxDrugs;
+    public int actualDrugs;
     public ScoreManager score;
     public int radiusOfView;
 
     private Rigidbody2D rb;
 	// Use this for initialization
 	void Start () {
+        try
+        {
+            string s = File.ReadAllText(Application.dataPath + "/score.txt");
+            string[] s1 = s.Split(',');
+            actualDrugs = System.Int32.Parse(s1[3]);
+        }
+        catch (System.Exception e)
+        {
+            print("Na moral que não foi");
+            actualDrugs = maxDrugs;
+        }
+
 		rb = GetComponent<Rigidbody2D> ();
         score = FindObjectOfType<ScoreManager>();
         blindness = FindObjectOfType<BlindnessController>();
@@ -77,8 +92,9 @@ public class CharacterController : MonoBehaviour {
 
     private void UseRemedy()
     {
-        if (!blindness.doingStuff)
+        if (!blindness.doingStuff && actualDrugs > 0)
         {
+            actualDrugs -= 1;
             alreadyUsed = true;
             blindness.DoHeal();
             score.DecreaseScore(300);

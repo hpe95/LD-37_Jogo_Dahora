@@ -48,7 +48,6 @@ public class ChecklistManager : MonoBehaviour
         // on what didn't work
         catch (System.Exception e)
         {
-            print(e);
             return false;
         }
         return true;
@@ -87,8 +86,6 @@ public class ChecklistManager : MonoBehaviour
         }
         catch (System.Exception e)
         {
-            print(e);
-            print("Véi. O erro que aconteceu ta de boas, não fudeo nada não.");
         }
     }
 

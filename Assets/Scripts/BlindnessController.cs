@@ -20,7 +20,6 @@ public class BlindnessController : MonoBehaviour {
         }
         catch (System.Exception e)
         {
-            print(e);
         }
         vignette = GetComponent<VignetteAndChromaticAberration>();
         StartCoroutine(blinding());
@@ -54,7 +53,6 @@ public class BlindnessController : MonoBehaviour {
     IEnumerator heal()
     {
         float desiredIntensity = vignette.intensity - healPercentage;
-        print(desiredIntensity);
         while(vignette.intensity >= desiredIntensity)
         {
             yield return new WaitForSeconds(1 / 60);
@@ -64,7 +62,6 @@ public class BlindnessController : MonoBehaviour {
             {
                 intensity = 0;
             }
-            print(intensity);
             vignette.intensity = intensity;
         }
     }

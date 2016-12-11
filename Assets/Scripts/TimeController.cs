@@ -11,16 +11,19 @@ public class TimeController : MonoBehaviour {
     private float hourAngle = 0;
     private float minuteAngle = 0;
 
+    public CharacterController player;
+    public UnityEngine.UI.Text doDrugs;
     public Image overlay;
     public GameObject hour;
     public GameObject minute;
     public ScoreManager score;
     public UnityEngine.UI.Text days;
     private BlindnessController blindness;
-    private bool booleana = true;
 
     // Use this for initialization
     void Start() {
+        player = FindObjectOfType<CharacterController>();
+        doDrugs.text = player.maxDrugs.ToString();
         overlay.color = new Color(0, 0, 0, 0);
         StartCoroutine(Wait());
         blindness = FindObjectOfType<BlindnessController>();
@@ -39,10 +42,16 @@ public class TimeController : MonoBehaviour {
         days.enabled = false;
     }
 
+    void Update()
+    {
+        doDrugs.text = player.actualDrugs.ToString();
+    }
+
     IEnumerator Wait()
     {
+
         Vector2 actual = Vector2.up;
-        for (int i = 0; i < 1500; i++)
+        for (int i = 0; i < 500; i++)
         {
             //actual = new Vector2(Mathf.Cos(0.5f) * actual.x - Mathf.Sin(0.5f) * actual.y, Mathf.Sin(0.5f) * actual.x + Mathf.Cos(0.5f) * actual.y);
             hour.transform.Rotate(Vector3.forward, -0.24f, Space.World);
@@ -67,6 +76,7 @@ public class TimeController : MonoBehaviour {
         {
             s = string.Concat(s, ",2");
         }
+        s = string.Concat(s, "," + player.actualDrugs.ToString());
         print(s);
         File.WriteAllText(Application.dataPath + "/score.txt", s);
 
