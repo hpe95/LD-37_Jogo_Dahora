@@ -26,12 +26,16 @@ desktop: 1600x900 60Hz; virtual: 1600x900 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 1.911103 ms
-Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 4.273471 ms
+UnloadTime: 1.862587 ms
+Joystick connected ("Controller (Xbox 360 Wireless Receiver for Windows)").
+ 
+(Filename:  Line: 1351)
 
-Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 665.
-Total: 0.270260 ms (FindLiveObjects: 0.046339 ms CreateObjectMapping: 0.032966 ms MarkObjects: 0.179136 ms  DeleteObjects: 0.011196 ms)
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 4.240504 ms
+
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 695.
+Total: 0.269016 ms (FindLiveObjects: 0.045095 ms CreateObjectMapping: 0.044784 ms MarkObjects: 0.164208 ms  DeleteObjects: 0.014306 ms)
 
 foi n
  
@@ -61,14 +65,9 @@ NullReferenceException: Object reference not set to an instance of an object
  
 (Filename:  Line: -1)
 
-NullReferenceException: Object reference not set to an instance of an object
-  at ObjectController.OnCollisionEnter2D (UnityEngine.Collision2D coll) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-0,0.335,2,3
+0,0.335,1,3
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
 Setting up 1 worker threads for Enlighten.
-  Thread -> id: 1990 -> priority: 1 
+  Thread -> id: 2274 -> priority: 1 

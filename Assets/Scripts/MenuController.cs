@@ -7,6 +7,7 @@ public class MenuController : MonoBehaviour {
 
     public Text[] texts = new Text[2];
     public SpriteRenderer background;
+    public Color chosenColor;
 
     private Color color;
     private int index;
@@ -82,7 +83,7 @@ public class MenuController : MonoBehaviour {
 
     void ActivateText(Text textToActivate)
     {
-        textToActivate.color = Color.red;
+        textToActivate.color = chosenColor;
     }
 
     void DeactivateText(Text textToDeactivate)

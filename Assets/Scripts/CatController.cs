@@ -7,11 +7,16 @@ public class CatController : MonoBehaviour {
 
     Animator anim;
     bool done = true;
+    float velocity = 0.5f;
+    Rigidbody2D rb;
+    SpriteRenderer sr;
 
 	// Use this for initialization
 	void Start () {
+        rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        Sit();
+        sr = GetComponent<SpriteRenderer>();
+        Walk();
 	}
 	
 	// Update is called once per frame
@@ -21,34 +26,44 @@ public class CatController : MonoBehaviour {
 
     void Sit()
     {
-        anim.SetTrigger("sit");
-        float deltaTime = Random.Range(0.5f, 2f);
+        anim.SetTrigger("Sit");
+        float deltaTime = Random.Range(2f, 5f);
         done = false;
-        StartCoroutine(Wait(deltaTime));
-        while (!done)
-        {
-            // Do nothing
-        }
-        Walk();
+        rb.velocity = Vector2.zero;
+        StartCoroutine(Wait(deltaTime, false));
+       
     }
 
     void Walk()
     {
-        anim.SetTrigger("walk");
-        print("oi");
-        float deltaTime = Random.Range(0.5f, 2f);
-        done = false;
-        StartCoroutine(Wait(deltaTime));
-        while (!done)
+        
+        float deltaTime = Random.Range(1.5f, 3f);
+        int dir = Random.Range(0, 2);
+        if(dir == 1)
         {
-            // Do nothing
+            sr.flipX = true;
+            rb.velocity = Vector2.right * velocity;
         }
-        Sit();
+        else
+        {
+            sr.flipX = false;
+            rb.velocity = Vector2.left * velocity;
+        }
+        anim.SetTrigger("Walk");
+
+        done = false;
+        StartCoroutine(Wait(deltaTime, true));
     }
 
-    IEnumerator Wait(float delta)
+    IEnumerator Wait(float delta, bool seila)
     {
         yield return new WaitForSeconds(delta);
-        done = true;
+        if (seila)
+        {
+            Sit();
+        } else
+        {
+            Walk();
+        }
     }
 }
