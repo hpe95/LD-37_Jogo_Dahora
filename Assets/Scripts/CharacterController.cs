@@ -89,6 +89,7 @@ public class CharacterController : MonoBehaviour {
 
     IEnumerator seilamano()
     {
+        anim.SetBool("walking", false);
         yield return new WaitForSeconds(3f);
         seilavei = true;
     }
@@ -119,29 +120,29 @@ public class CharacterController : MonoBehaviour {
         test = Mathf.Abs(test) < EPS ? 0 : test;
         test2 = Mathf.Abs(test2) < EPS ? 0 : test2;
 
-
-        if (test != 0 || test2 != 0)
+        if (seilavei)
         {
-            anim.SetBool("walking", true);
-            if (test > 0)
-                anim.SetFloat("lastMoveY", 1f);
-            else if (test < 0)
-                anim.SetFloat("lastMoveY", -1f);
-            else
-                anim.SetFloat("lastMoveY", 0);
+            if (test != 0 || test2 != 0)
+            {
+                anim.SetBool("walking", true);
+                if (test > 0)
+                    anim.SetFloat("lastMoveY", 1f);
+                else if (test < 0)
+                    anim.SetFloat("lastMoveY", -1f);
+                else
+                    anim.SetFloat("lastMoveY", 0);
 
-            if (test2 > 0)
-                anim.SetFloat("lastMoveX", 1f);
-            else if (test2 < 0)
-                anim.SetFloat("lastMoveX", -1f);
+                if (test2 > 0)
+                    anim.SetFloat("lastMoveX", 1f);
+                else if (test2 < 0)
+                    anim.SetFloat("lastMoveX", -1f);
+                else
+                    anim.SetFloat("lastMoveX", 0);
+            }
             else
-                anim.SetFloat("lastMoveX", 0);
-        }
-        else
-        {
-            anim.SetBool("walking", false);
-           
-
+            {
+                anim.SetBool("walking", false);
+            }
         }
     }
 

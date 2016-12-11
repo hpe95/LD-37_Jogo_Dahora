@@ -1,13 +1,14 @@
 fileFormatVersion: 2
-guid: f133082139cd88c408d1325f0a2104a8
-timeCreated: 1481459564
+guid: 0e0bec1eab5f9a546943fde90c38c762
+timeCreated: 1481475572
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: caminhada_esquerda_3.5_0
-    21300002: caminhada_esquerda_3.5_1
-    21300004: caminhada_esquerda_3.5_2
-    21300006: caminhada_esquerda_3.5_3
+    21300000: gato_0
+    21300002: gato_1
+    21300004: gato_2
+    21300006: gato_3
+    21300008: gato_4
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -64,62 +65,75 @@ TextureImporter:
     overridden: 0
   - buildTarget: Standalone
     maxTextureSize: 2048
-    textureFormat: 4
+    textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
-    overridden: 1
+    overridden: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: caminhada_esquerda_3.5_0
+      name: gato_0
       rect:
         serializedVersion: 2
-        x: 8
-        y: 8
-        width: 15
-        height: 34
+        x: 0
+        y: 0
+        width: 18
+        height: 17
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: caminhada_esquerda_3.5_1
+      name: gato_1
       rect:
         serializedVersion: 2
-        x: 32
-        y: 8
-        width: 15
-        height: 34
+        x: 20
+        y: 0
+        width: 18
+        height: 17
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: caminhada_esquerda_3.5_2
+      name: gato_2
       rect:
         serializedVersion: 2
-        x: 56
-        y: 8
-        width: 15
-        height: 34
+        x: 42
+        y: 0
+        width: 18
+        height: 17
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: caminhada_esquerda_3.5_3
+      name: gato_3
       rect:
         serializedVersion: 2
-        x: 80
-        y: 8
-        width: 15
-        height: 34
+        x: 65
+        y: 0
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gato_4
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 0
+        width: 10
+        height: 17
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

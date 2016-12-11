@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 53c9ee591adef9a4584ec5650725029e
-timeCreated: 1481460305
+timeCreated: 1481474650
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -64,12 +64,12 @@ TextureImporter:
     overridden: 0
   - buildTarget: Standalone
     maxTextureSize: 2048
-    textureFormat: -1
+    textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
-    overridden: 0
+    overridden: 1
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -78,9 +78,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 8
-        y: 8
+        y: 7
         width: 15
-        height: 34
+        height: 35
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -91,9 +91,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 31
-        y: 8
+        y: 7
         width: 15
-        height: 34
+        height: 35
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -104,9 +104,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 55
-        y: 8
+        y: 7
         width: 15
-        height: 34
+        height: 35
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -117,9 +117,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 79
-        y: 8
+        y: 7
         width: 15
-        height: 34
+        height: 35
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
