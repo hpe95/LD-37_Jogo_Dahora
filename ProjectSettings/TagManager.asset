@@ -39,6 +39,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: sei la
+    uniqueID: 3832060155
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

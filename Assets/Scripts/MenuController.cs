@@ -34,7 +34,7 @@ public class MenuController : MonoBehaviour {
             {
                 if (index == 0)
                 {
-                    UnityEngine.SceneManagement.SceneManager.LoadScene("First_Scene");
+                    UnityEngine.SceneManagement.SceneManager.LoadScene(1);
                 }
                 else
                 {
