@@ -22,6 +22,7 @@ public class TimeController : MonoBehaviour {
     private BlindnessController blindness;
     private bool endLevelStarted = false;
     public bool paused = false;
+	private bool credits = false;
 
     void Awake()
     {
@@ -98,7 +99,7 @@ public class TimeController : MonoBehaviour {
     IEnumerator EndLevelNaMoral()
     {
         string s = "";
-
+		ChecklistManager checklist = FindObjectOfType<ChecklistManager>();
 
         float intensity = blindness.vignette.intensity + 0.33f;
         if (intensity > 1f)
@@ -125,17 +126,21 @@ public class TimeController : MonoBehaviour {
             overlay.color = new Color(overlay.color.r, overlay.color.g, overlay.color.b, overlay.color.a + 0.01f);
             yield return new WaitForSeconds(1f / 60f);
         }
-
-        days.enabled = true;
+		if (checklist.savedLines.Count == 3) {
+			days.enabled = false;
+		} else {
+			days.enabled = true;
+		}
         yield return new WaitForSeconds(2f);
-        ChecklistManager checklist = FindObjectOfType<ChecklistManager>();
-        if (checklist.savedLines.Count == 3)
-        {
-            Application.Quit();
-        }
-        else
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
+
+		if (checklist.savedLines.Count == 3)
+		{
+			UnityEngine.SceneManagement.SceneManager.LoadScene(2);
+			//Application.Quit ();
+		}
+		else
+		{
+			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+		}
     }
 }

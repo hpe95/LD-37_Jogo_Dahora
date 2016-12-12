@@ -33,7 +33,7 @@ public class MenuController : MonoBehaviour {
             {
                 doStuff();
             }
-            else if(Input.GetKeyDown(KeyCode.JoystickButton0) || Input.GetKeyDown(KeyCode.JoystickButton7))
+			else if(Input.GetKeyDown(KeyCode.JoystickButton0) || Input.GetKeyDown(KeyCode.JoystickButton7) || Input.GetKeyDown(KeyCode.Return))
             {
                 if (index == 0)
                 {
