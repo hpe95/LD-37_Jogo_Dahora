@@ -1497,7 +1497,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03bac6cd1571a3a4eb78ba55e8c3e680, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  indexToBeChecked: 0600000003000000
+  indexToBeChecked: 06000000
   checkList: {fileID: 447858454}
   buttonSprite: {fileID: 21300000, guid: 051167588e28feb4c97c4553247702ea, type: 3}
   button: []
@@ -1664,7 +1664,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 319031958}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dd6d4281e5d7cd44d8c6e38bc2c1b8d8, type: 3}
   m_Name: 
@@ -2543,7 +2543,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f76882c148054849b41679add2d25ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 4
   button: {fileID: 42509850}
   maxDrugs: 3
   actualDrugs: 0
@@ -2899,7 +2899,7 @@ RectTransform:
   m_GameObject: {fileID: 685453960}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.6663261, y: 0.66632605, z: 0.66632605}
+  m_LocalScale: {x: 0.8439477, y: 0.8439475, z: 0.8439475}
   m_Children: []
   m_Father: {fileID: 1672030999}
   m_RootOrder: 1
@@ -3628,9 +3628,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0.43844223}
+  m_Offset: {x: 0, y: 0.29771638}
   serializedVersion: 2
-  m_Size: {x: 1.5, y: 2.1231155}
+  m_Size: {x: 1.5, y: 2.4045672}
 --- !u!114 &817280057
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3911,9 +3911,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0.43441987}
+  m_Offset: {x: 0, y: 0.28286862}
   serializedVersion: 2
-  m_Size: {x: 1.5, y: 2.1311603}
+  m_Size: {x: 1.5, y: 2.4342628}
 --- !u!114 &842583645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4698,7 +4698,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 10.7630005}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 120.6, y: -71.6}
+  m_AnchoredPosition: {x: 117, y: -54}
   m_SizeDelta: {x: 143, y: 18.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1111538766
@@ -4722,7 +4722,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 8f3626940c5cac646819bca3364be4e3, type: 3}
-    m_FontSize: 16
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -5609,9 +5609,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: -0.020608187}
+  m_Offset: {x: 0, y: 0.33367229}
   serializedVersion: 2
-  m_Size: {x: 1.5, y: 1.7335548}
+  m_Size: {x: 1.5, y: 1.0249934}
 --- !u!114 &1260988348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6243,7 +6243,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 269.6, y: -62}
+  m_AnchoredPosition: {x: 300, y: -62}
   m_SizeDelta: {x: 59, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1593160269
@@ -6317,7 +6317,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 45}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 238.6, y: -52.5}
+  m_AnchoredPosition: {x: 269, y: -52.5}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1614844115
@@ -6370,7 +6370,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1624215657
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7206,7 +7206,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300008, guid: 0e0bec1eab5f9a546943fde90c38c762, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -7218,7 +7218,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1757529400}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.5878735, y: -2.0017595, z: 0}
+  m_LocalPosition: {x: 12.52, y: -1.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

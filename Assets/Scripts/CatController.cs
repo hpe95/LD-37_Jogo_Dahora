@@ -6,7 +6,6 @@ using Random = UnityEngine.Random;
 public class CatController : MonoBehaviour {
 
     Animator anim;
-    bool done = true;
     float velocity = 0.5f;
     Rigidbody2D rb;
     SpriteRenderer sr;
@@ -28,7 +27,6 @@ public class CatController : MonoBehaviour {
     {
         anim.SetTrigger("Sit");
         float deltaTime = Random.Range(2f, 5f);
-        done = false;
         rb.velocity = Vector2.zero;
         StartCoroutine(Wait(deltaTime, false));
        
@@ -39,19 +37,19 @@ public class CatController : MonoBehaviour {
         
         float deltaTime = Random.Range(1.5f, 3f);
         int dir = Random.Range(0, 2);
+        float upOrDownVelocity = Random.Range(-1.5f, 1.5f);
         if(dir == 1)
         {
             sr.flipX = true;
-            rb.velocity = Vector2.right * velocity;
+            rb.velocity = Vector2.right * velocity + Vector2.up * upOrDownVelocity;
         }
         else
         {
             sr.flipX = false;
-            rb.velocity = Vector2.left * velocity;
+            rb.velocity = Vector2.left * velocity + Vector2.up * upOrDownVelocity;
         }
         anim.SetTrigger("Walk");
 
-        done = false;
         StartCoroutine(Wait(deltaTime, true));
     }
 
@@ -65,5 +63,12 @@ public class CatController : MonoBehaviour {
         {
             Walk();
         }
+    }
+
+    void OnCollisionEnter2D(Collision2D coll)
+    {
+        rb.velocity = Vector2.zero;
+        anim.SetTrigger("Sit");
+        print(coll.gameObject.name);
     }
 }

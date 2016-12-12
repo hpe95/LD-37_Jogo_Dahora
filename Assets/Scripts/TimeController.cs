@@ -117,7 +117,7 @@ public class TimeController : MonoBehaviour {
             s = string.Concat(s, ",1");
         }
         s = string.Concat(s, "," + player.actualDrugs.ToString());
-        print(s);
+
         File.WriteAllText(Application.dataPath + "/score.txt", s);
 
         while (overlay.color.a < 1f)
