@@ -4,13 +4,14 @@ using UnityEngine;
 using System.IO;
 
 public class CharacterController : MonoBehaviour {
-	public float moveSpeed = 0f;
-	private float moveHorizontal = 0f;
-	private float moveVertical = 0f;
+    public float moveSpeed = 0f;
+    private float moveHorizontal = 0f;
+    private float moveVertical = 0f;
     private bool alreadyUsed = false;
-	public GameObject button; 
+    public GameObject button;
     private BlindnessController blindness;
     private bool seilavei = true;
+    private TimeController tc;
 
     private Animator anim;
 
@@ -19,9 +20,17 @@ public class CharacterController : MonoBehaviour {
     public ScoreManager score;
     public int radiusOfView;
 
+    private bool canPlaySound = false;
+    private MyUnity music;
+    private Vector3[] possibleRespawns = new Vector3[12];
     private Rigidbody2D rb;
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start() {
+        tc = FindObjectOfType<TimeController>();
+        music = FindObjectOfType<MyUnity>();
+        if (music != null) {
+            music.GetComponent<AudioHighPassFilter>().enabled = false;
+        }
         anim = GetComponent<Animator>();
         try
         {
@@ -35,16 +44,33 @@ public class CharacterController : MonoBehaviour {
             actualDrugs = maxDrugs;
         }
 
-		rb = GetComponent<Rigidbody2D> ();
+
+        possibleRespawns[0] = new Vector3(1f, -1f, 0f);
+        possibleRespawns[1] = new Vector3(4f, -6f, 0f);
+        possibleRespawns[2] = new Vector3(0f, -4f, 0f);
+        possibleRespawns[3] = new Vector3(0f, -2f, 0f);
+        possibleRespawns[4] = new Vector3(2f, -2f, 0f);
+        possibleRespawns[5] = new Vector3(4f, -2f, 0f);
+        possibleRespawns[6] = new Vector3(4f, -4f, 0f);
+        possibleRespawns[7] = new Vector3(6f, -6f, 0f);
+        possibleRespawns[8] = new Vector3(6f, -4f, 0f);
+        possibleRespawns[9] = new Vector3(10f, -6f, 0f);
+
+        rb = GetComponent<Rigidbody2D>();
         score = FindObjectOfType<ScoreManager>();
         blindness = FindObjectOfType<BlindnessController>();
-	}
+        Respawn();
+    }
 
 
     private Collider2D[] overlapped = null;
     // Update is called once per frame
-    void Update () {
-        if (seilavei)
+    void Update() {
+        if (tc.paused && Input.GetKeyDown(KeyCode.Joystick1Button1))
+        {
+            ModalDialogManager.Instance.CloseDialog();
+        }
+        if (seilavei && !tc.paused)
         {
             Move();
             if ((Input.GetKeyDown(KeyCode.Joystick1Button3) || Input.GetKeyDown(KeyCode.Z)) && !alreadyUsed)
@@ -83,6 +109,7 @@ public class CharacterController : MonoBehaviour {
                 StartCoroutine(seilamano());
                 object1.use();
                 object1.checkTask();
+				object1.gameObject.GetComponent<AudioSource> ().Play ();
             }
         }
     }
@@ -120,7 +147,7 @@ public class CharacterController : MonoBehaviour {
         test = Mathf.Abs(test) < EPS ? 0 : test;
         test2 = Mathf.Abs(test2) < EPS ? 0 : test2;
 
-        if (seilavei)
+        if (seilavei && !tc.paused)
         {
             if (test != 0 || test2 != 0)
             {
@@ -156,4 +183,9 @@ public class CharacterController : MonoBehaviour {
             score.DecreaseScore(300);
         }
     }
+
+	private void Respawn(){
+		Vector3 randomRespawn = possibleRespawns [Random.Range (0, 9)];
+		transform.position = randomRespawn;
+	}
 }

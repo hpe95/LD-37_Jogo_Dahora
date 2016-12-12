@@ -1,7 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
+using System.IO;
 public class ObjectController : MonoBehaviour {
 
     public int[] indexToBeChecked;
@@ -13,30 +14,38 @@ public class ObjectController : MonoBehaviour {
 	public GameObject[] button;
 	public bool used = false;
 	public AudioClip anySoundYouWantBro;
-	private float volumeAudio = .2f;
 
+	public AudioSource audio;
+
+
+	private string[] lines;
+	private bool textEnable = false;
+	private CharacterController charController;
 	void Awake(){
-
 	}
 	void Start () {
-		
+		audio = GetComponent<AudioSource> ();
+		charController = FindObjectOfType<CharacterController> ();
+		lines = new string[9];
         checkList = FindObjectOfType<ChecklistManager>();
         radiusOfView = FindObjectOfType<CharacterController>().radiusOfView;
 		sr = GetComponent<SpriteRenderer> ();
 		button = GameObject.FindGameObjectsWithTag("Button_B");
 		direction = button [0].transform.position;
+		lines = File.ReadAllLines(Application.dataPath + "/Texts/Popup.txt");
 	}
 
     Collider2D overlapped;
 
     // Update is called once per frame
     void Update () {
-        
-        overlapped = Physics2D.OverlapCircle(new Vector2(transform.position.x + 2f, transform.position.y), radiusOfView, 1 << LayerMask.NameToLayer("Player"));
-       
+		//text.enabled = false;
+		if(lines.Length == 0){
+			lines = File.ReadAllLines(Application.dataPath + "/Texts/Popup.txt");
+		}
 
-     
-        
+        overlapped = Physics2D.OverlapCircle(new Vector2(transform.position.x + 2f, transform.position.y), radiusOfView, 1 << LayerMask.NameToLayer("Player"));
+
     }
 
 	public void enableButton(){
@@ -54,6 +63,7 @@ public class ObjectController : MonoBehaviour {
 	}
 	public void disableButton(){
 		button [0].GetComponent<SpriteRenderer> ().enabled = false;
+
 	}
 
 
@@ -68,8 +78,20 @@ public class ObjectController : MonoBehaviour {
         }
     }
 
-    void OnCollisionEnter2D(Collision2D coll)
-    {
-		GetComponent<AudioSource> ().Play ();
-    }
+	private bool Load(string fileName)
+	{
+		// Handle any problems that might arise when reading the text
+		try
+		{
+			lines = File.ReadAllLines(Application.dataPath + "/" + fileName);
+		}
+
+		// If anything broke in the try block, we throw an exception with information
+		// on what didn't work
+		catch (System.Exception e)
+		{
+			return false;
+		}
+		return true;
+	}
 }

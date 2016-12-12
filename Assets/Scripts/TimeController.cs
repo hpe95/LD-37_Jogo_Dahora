@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.IO;
 using Image = UnityEngine.UI.Image;
+using UnityEngine.UI;
 
 public class TimeController : MonoBehaviour {
 
@@ -20,6 +21,17 @@ public class TimeController : MonoBehaviour {
     public UnityEngine.UI.Text days;
     private BlindnessController blindness;
     private bool endLevelStarted = false;
+    public bool paused = false;
+
+    void Awake()
+    {
+        ModalDialogManager.Instance.DialogClosed += Instance_DialogClosed;
+    }
+
+    void Instance_DialogClosed(object sender, Assets.UIModalDialog.Scripts.DialogClosedEventArgs e)
+    {
+        paused = false;
+    }
 
     // Use this for initialization
     void Start() {
@@ -37,6 +49,8 @@ public class TimeController : MonoBehaviour {
         }
         catch (System.Exception e)
         {
+            ModalDialogManager.Instance.ShowDialog();
+            paused = true;
             s = string.Concat(s, "1");
         }
         days.text = string.Concat("Day ", s);
@@ -54,6 +68,12 @@ public class TimeController : MonoBehaviour {
         Vector2 actual = Vector2.up;
         for (int i = 0; i < 1500; i++)
         {
+            if (paused)
+            {
+                yield return new WaitForSeconds(0.01f);
+                i = 0;
+                continue;
+            }
             if(i == 750)
             {
                 SmoothScaling scaling = FindObjectOfType<SmoothScaling>();

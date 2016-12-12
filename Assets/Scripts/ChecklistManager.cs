@@ -16,7 +16,7 @@ public class ChecklistManager : MonoBehaviour
     public List<string> savedLines = new List<string>();
     private string[] lines = null;
     private CharacterController player;
-
+	public Dictionary<int, string> dict = new Dictionary<int, string> ();
     // Use this for initialization
     void Start()
     {
@@ -47,8 +47,12 @@ public class ChecklistManager : MonoBehaviour
         try
         {
             lines = File.ReadAllLines(Application.dataPath + "/" + fileName);
+			int length = lines.Length;
+			for(int i = 0; i<length; i++)
+				dict.Add(i, lines[i]);
             DoStuff(lines);
         }
+
         // If anything broke in the try block, we throw an exception with information
         // on what didn't work
         catch (System.Exception e)
@@ -85,6 +89,13 @@ public class ChecklistManager : MonoBehaviour
         {
             if (savedLines.Contains(lines[index]))
             {
+				string teste;
+				/*for(int i = 0; i < dict.Count; i++){
+					if(dict.ContainsKey(i)){
+						print(dict[i]);
+					}
+
+				}*/
                 savedLines.Remove(lines[index]);
                 player.score.AddToScore(500);
                 return true;
