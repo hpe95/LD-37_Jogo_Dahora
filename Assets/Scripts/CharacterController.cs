@@ -66,7 +66,7 @@ public class CharacterController : MonoBehaviour {
     private Collider2D[] overlapped = null;
     // Update is called once per frame
     void Update() {
-        if (tc.paused && Input.GetKeyDown(KeyCode.Joystick1Button1))
+        if (tc.paused && Input.GetKeyUp(KeyCode.Joystick1Button0))
         {
             ModalDialogManager.Instance.CloseDialog();
         }
@@ -101,8 +101,9 @@ public class CharacterController : MonoBehaviour {
         } else {
             button.GetComponent<SpriteRenderer>().enabled = false;
         }
-        if ((Input.GetKeyDown(KeyCode.Joystick1Button1) || Input.GetKeyDown(KeyCode.X)) && seilavei )
+        if ((Input.GetKeyDown(KeyCode.Joystick1Button1) || Input.GetKeyDown(KeyCode.X)) && seilavei && !tc.paused)
         {
+            print(tc.paused);
             if (object1 != null) {
                 seilavei = false;
                 rb.velocity = Vector2.zero;
